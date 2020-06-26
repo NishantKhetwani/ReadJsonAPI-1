@@ -10,7 +10,7 @@
 
 Steps to follow:
 1) Run ReadJsonAPI Web API project.
-2) Open Colors.html in browser. Please note that html is using CDN for css and jquery. Without internet, html wont work.
+2) Open Colors.html in browser. Please note that html is using CDN for css and jquery. Without internet, html wont work. Please make sure internet is working
 3) POST some data using Web API and POSTMAN tool and refresh Colors.html page to check for newly inserted record.
 	
 	 
