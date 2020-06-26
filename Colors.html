@@ -1,0 +1,46 @@
+<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+</table>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": {
+			"url": "http://localhost:62405/api/colors/GetColors",
+			"type": "GET",
+			"datatype": "json",
+			"dataSrc": function (result) {
+			return result;
+			}
+		},
+		"columns": [
+            { "data": "Name"},
+			{ "data": "Category"},
+			{ "data": "Type"},
+			{ "data": "Code"}
+		],
+		"columnDefs": [
+			{
+				"targets": 3,
+				"render": function (data, type, full, meta) {
+					return '<span><b>RGBA : </b>'+ (full.Code.RGBA).toString() + ' and <b>Hex</b> ' + full.Hex + '</span>'
+				}
+			
+			
+			}
+		]
+    } );
+} );
+</script>
